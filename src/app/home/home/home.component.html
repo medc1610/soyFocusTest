@@ -1,0 +1,48 @@
+
+
+<div class="container">
+    <h1>Hacer un retiro</h1><hr>
+    <div *ngFor="let meta of metaArr; let i = index">
+        <div class="card">
+            <div class="card-header">
+             <b> {{meta.metaNombre}} - {{meta.serie}} </b> 
+            </div>
+            <div class="m-3">
+            <div class="contenedor">
+                <div class="saldo">
+                    <h6 class="card-title">Saldo Actual</h6>
+                </div>
+                
+                <div class="dinero">
+                    <h2>{{meta.saldoDisponible | currency:'CLP':'symbol-narrow':'1.0-4'}} CLP</h2>
+                </div>
+                
+  
+                <div class="boton">
+                  <button (click)="retiroTotal(!meta.retirarTodo, meta.metaId)" class="btn btn-success">Quiero retirar todo</button>
+                </div>
+                
+              <div class="input">
+                  <input  placeholder="Quiero ingresar el monto" 
+                  type="number"
+                  class="input"
+                  [(ngModel)]="metaArr[i].retirarOtroMonto" 
+                  (ngModelChange)="validarInput(i)" >
+              </div>
+            </div>    
+            </div>
+          </div>
+    </div>
+    <div class="total mt-3">
+        <div class="titulo">
+            <h5>Monto a retirar</h5>
+        </div>
+        <div class="monto">
+            {{montoRetirar | currency:'CLP':'symbol-narrow':'1.0-4'}} CLP
+        </div>
+    </div>
+    <hr>
+    <div class="boton2">
+        <button class="btn btn-warning" type="button"  routerLink="/retiro" (click)="seleccionar()">Seleccionar</button>
+    </div>
+</div>

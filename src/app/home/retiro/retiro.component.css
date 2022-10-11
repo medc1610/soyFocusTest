@@ -1,0 +1,12 @@
+.contenedor{
+    height: 100vh;
+    display: grid;
+    grid-column: auto auto;
+    grid-row: auto ;
+    border: 1px solid black;
+    justify-content: center;
+    align-items: start;
+}
+
+.retiro{
+}
